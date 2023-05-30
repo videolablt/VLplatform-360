@@ -1,0 +1,39 @@
+@import 'mixins/mixins';
+
+$border_color:#aaa;
+$border_color_hover:#555;
+$grey:#eee;
+body{
+	*{
+		font-family: 'Raleway', sans-serif;
+	}
+}
+.container-fluid{
+	width:100%;
+	&.sm{
+		max-width:800px;	
+	}
+
+}
+.wrapper360{
+	
+	@include flex_center(center);
+	width:auto;
+	height:100vh;
+	margin:0 auto;
+	min-height:300px;
+	.inner{
+		min-width:500px;
+	}
+
+
+}
+@media (max-width: 768px) {
+	.wrapper360{
+		.inner{
+			min-width:90%;
+		}
+	}
+}
+
+

@@ -1,0 +1,1407 @@
+@import 'mixins/mixins';
+@import 'parts/toogler';
+$red:#fa456d;
+$red2:#ffa2a2;
+$green:#2fbb11;
+$green2:#21830c;
+$blue:#2271b1;
+$blue_dark:#22577E;
+$grey:#cccccc;
+$grey_dark:#555;
+$black:#555;
+$higl:#c14502;
+$border_color:#999;
+$disabled_bg:#d2d2d2;
+$bgcolor1:#5584AC;
+$bgcolor2:$blue;
+$yellow:#feef98;
+$yellow2:#9f8802;
+$light_bg:#aaa;
+$light_bg2:#ddd;
+$light_bg_hover:#999;
+$border_color_hover:#555;
+$text_color:#50575e;
+$red_light:#ffddd5;
+$grey_dark2:#999;
+@import 'parts/styled_success_mark';
+.container{
+	&.md{
+		max-width:1200px;
+	}
+}
+
+
+.photos360-wrapper{
+	position:relative;
+	display:block;
+	width:calc(100% - 30px);
+	min-height:200px;
+	padding:12px 15px;
+	&.loading{
+		&:before{
+			content:"";
+			position:fixed;
+			top:0;
+			left:0;
+			width:100vw;
+			height:100vh;
+			background:rgba(255,255,255,0.9) url(../img/spinners/loader.gif) center center no-repeat;
+			background-size:180px auto;
+			z-index:499;
+		}
+	}
+	form{
+		max-width:97%;
+	}
+	&.categories{
+		margin-top:0;
+		padding-top:4px;
+	}
+	.centered{
+		text-align:center;
+	}
+	.folder_space{
+		@include border_radius(5px);
+		position:absolute;
+		top:10px;
+		right:10px;
+		display:block;
+		width:140px;
+		height:40px;
+		line-height:40px;
+		border:1px solid $blue;
+		color:$blue;
+		font-weight:bold;
+		font-size:16px;
+		padding:5px;
+		text-align:center;
+		
+		svg{
+			width:25px;
+			height:25px;
+			margin-bottom:-7px;
+			padding-right:5px;
+			path{
+				fill:$blue;
+			}
+		}
+	}
+
+	.wpml-notice{
+		padding:20px 30px;
+	}	
+	.thumb img{
+		max-width:50px;
+	}
+	table tr td{
+		min-height:40px;
+		vertical-align: middle;
+	}
+	.using-wrap{
+		svg{
+			cursor:pointer;
+			width:17px;
+			height:17px;
+			margin-bottom:-4px;
+			padding-left:5px;
+			path{
+				fill:$blue;
+			}
+		}
+		span.msg{
+			font-size:13px;
+			color:$green2;
+			padding-left:4px;
+
+		}
+	}
+	.irow .shortcode{
+		font-size:15px;
+		.woostify-svg-icon{
+			padding-left:5px;
+		}
+	}
+	textarea.content{
+		position:absolute;
+		display:block;
+		left:-9999px;
+		top:-9999px;
+		opacity:0;
+		&.visible{
+			position:relative;
+			left:0;
+			top:0;
+			opacity:1;
+		}
+	}
+	
+	.wpml-notice{
+		display:none;
+	}
+	p.lg{
+		font-size:22px;
+	}
+	#files_output{
+		position:relative;
+		padding:5px 0 5px 0;
+		display:block;
+		width:100%;
+		min-height:50px;
+		margin-bottom:15px;
+		&.scroll{
+			max-height:200px;
+			padding:4px;
+			overflow-y:scroll;
+			border:2px dashed $blue;
+			.ajax-file-upload-statusbar{
+				margin0right:0;
+			}
+		}
+		.ajax-file-upload-statusbar{
+			margin-left:0;
+		}
+	}
+	a.button{
+		@include transitions(0.3s);
+		background:$bgcolor2;
+		padding:3px 25px;
+		svg{
+			margin-bottom:-4px;
+			padding-right:4px;
+			path{
+				fill:white;
+			}
+		}
+		&.update{
+			margin-top:25px;
+		}
+		&.button-secondary{
+			border:1px solid $blue;
+			background:transparent;
+			color:$blue;
+			svg path{
+				@include transitions(0.3s);
+				fill:$blue;
+			}
+			&:hover{
+				background:$blue;
+				color:white;
+				svg path{
+					fill:white;
+				}
+			}
+		}
+
+		&.light{
+			background-color:$blue;
+			padding:8px 35px;
+		}
+	}
+	.tablenav-pages{
+		a.button{
+			background:transparent;
+			&:hover{
+				background:transparent;
+				svg path{
+					fill:$blue;
+				}
+			}
+		}
+	}
+	.select-box{
+ 		@include select_box;
+	}
+	.photos360-row-wrapper{
+		position:relative;
+		display:block;
+		width:100%;
+		min-height:120px;
+		&.sm{
+			min-height:40px;
+			margin-bottom:20px;	
+		}
+		&.loading{
+			&:before{
+				content:"";
+				position:absolute;
+				top:0;
+				left:0;
+				width:calc(100% - 20px);
+				height:100%;
+				min-height:100px;
+				z-index:200;
+				background:rgba(255,255,255,0.85) url(../img/spinners/loader.gif) center center no-repeat;
+				background-size:auto 110px;
+			}
+		}
+	}
+	.response_message{
+		span{
+			display:inline-block;
+			padding:20px 50px 20px 20px;
+			font-size:15px;
+			line-height:20px;
+			margin-bottom:25px;
+			font-weight:bold;
+			border:1px solid #aaa;
+			border-left-width:7px;
+			border:1px solid $green;
+			border-left-width:7px;
+	
+		}
+	}
+	.create-new-category{
+		display:block;
+		width:100%;
+		clear:both;
+		padding-top:5px;
+	}
+	.irow{
+		@include clearfix;
+		position:relative;
+		display:block;
+		width:100%;
+		min-height:25px;
+		margin-bottom:25px;
+		margin-top:25px;
+		padding:5px 0;
+		&.ltop{
+			margin-top:7px;
+		}
+		&.md{
+			max-width:800px;
+		}
+		.coll{
+			display:block;
+			float:left;
+			width:50%;
+			min-height:70px;
+			&.col-3{
+				width:33.33%;
+			}
+		}
+		&.wcheckbox{
+			label.title{
+				padding-left:70px;
+				cursor: default;
+			}
+			.styled-toogler{
+				position:absolute !important;
+				top:4px;
+				left:0;
+				z-index:2;
+			}
+		}
+		label{
+			display:block;
+			width:100%;
+			font-size:16px;
+			line-height:25px;
+			font-weight: bold;
+			padding-bottom:3px;
+		}
+		input[type="text"]{
+			display:block;
+			width:80%;
+			float:left;
+			max-width:700px;
+			height:35px;
+			line-height:35px;
+			padding:0 5px;
+			&.date-picker{
+				max-width:200px;
+			}
+		}
+		
+		a.save{
+			display:block;
+			text-align:center;
+			margin-left:4px;
+			width:15%;
+			float:left;
+			max-width:150px;
+			height:35px;
+			font-size:16px;
+			line-height:20px;
+			padding:5px 35px;
+		}
+	}
+
+	h2.wsp{
+		margin:30px 0 10px 0;
+	}
+	.tip{
+		color:$grey_dark;
+		font-size:14px;
+		line-height:18px;
+		padding-bottom:25px;
+	}
+}
+#ui-datepicker-div{
+	z-index:100 !important;
+}
+
+
+.options-form{
+	fieldset{
+		border:1px solid #aaa;
+		font-size:16px;
+		padding:10px;
+		max-width:calc(100% - 30px);
+		margin-bottom:20px;
+		margin-top:20px;
+		legend{
+			color:$blue;
+			font-weight:bold;
+			font-size:18px;
+			line-height:28px;
+		}
+		table{
+			th{
+				width:400px;
+			}
+		}
+		textarea{
+			width:100%;
+			min-height:80px;
+		}
+		i{
+			color:$grey_dark2;
+			font-size:12px;
+			line-height:15px;
+			font-style:normal;
+			font-weight:300;
+		}
+	}
+}
+#videolab360_records_form,#videolab360_categories_form{
+	.row-actions{
+		left:0;
+		opacity:0.8;
+	}
+	tr{
+		&.removing{
+			pointer-events: none;
+			background:$red_light;
+		}
+		&:hover{
+			.row-actions{
+				opacity:1;
+			}
+		}
+	}
+
+
+	.column-label,.mobile-label{
+
+		.inner{
+			@include flex_direction(row);
+		}
+		.thumb{
+			@include contain;
+			background-repeat: no-repeat;
+			background-position:center center;
+			display:block;
+			width:80px;
+			height:70px;
+			float:left;
+			border:1px solid $border_color;
+		}
+		.label{
+			 @include flex_center(center);
+			 min-height:70px;
+			 padding-left:10px;
+			 font-size:16px;
+
+		}
+	}
+
+}
+#videolab360_categories_form,.admin-logs{
+	max-width:1200px;
+
+}
+.admin-logs{
+	.tablenav{
+		.bulkactions{
+			display:none;
+		}
+	}
+}
+p.label{
+	font-size:15px;
+	font-weight:normal;
+	margin-bottom:4px;
+	width:100%;
+}
+.add-category{
+	@include flex_direction(row);	
+	padding-bottom:40px;
+	input{
+		min-width:300px;
+		height:35px;
+		padding:0 5px;
+		&.error{
+			border-color:$red;
+		}
+	}
+	.btn{
+		@include transitions(0.3s);
+		@include border_radius(2px);
+		display:block;
+		width:90px;
+		height:35px;
+		background:$blue;
+		color:white;
+		padding:0 7px 0 2px;
+		margin-left:3px;
+		cursor:pointer;
+		text-align:center;
+		svg{
+			margin-bottom:-3px;
+			path{
+				fill:white;
+			}
+		}
+		&:hover{
+			background:$blue_dark;
+		}
+		span{
+			line-height:35px;
+			font-size:15px;
+		}
+	}
+}
+#videolab360_categories_form{
+	max-width:1000px;
+	.column-actions{
+		width:250px;
+	}
+	.inner{
+		.input{
+			display:none;
+		}
+		&.editable{
+			.name{
+				display:none;
+			}
+			.input{
+				@include flex_direction(row);
+				input{
+					min-width:100px;
+					height:25px;
+					padding:0 5px;
+					&.error{
+						border-color:$red;
+					}
+				}
+				.btn{
+					@include transitions(0.3s);
+					@include border_radius(2px);
+					display:block;
+					width:30px;
+					height:28px;
+					background:$blue;
+					color:white;
+					
+					margin-left:3px;
+					cursor:pointer;
+					text-align:center;
+					svg{
+						margin-bottom:-7px;
+						path{
+							fill:white;
+						}
+					}
+					&:hover{
+						background:$blue_dark;
+					}
+				}
+			}
+		}
+	}
+}
+#videolab360_admin_preview,#videolab360_options_form,.photos360-wrapper{
+
+	#image360 .cloudimage-360-inner-box canvas{
+		border:1px solid $light_bg2;
+	}
+
+	.options{
+		.update_options{
+			margin-top:30px;
+		}
+		.inv{
+			opacity:0.6 !important;
+			pointer-events: none !important;
+			cursor: not-allowed;
+		}
+		.item{
+			position:relative;
+			display:inline-block;
+			width:100%;
+			min-height:30px;
+			margin:0 0 6px 0;
+			clear:both;
+			opacity:1;
+			label{
+				margin-top:4px;
+				margin-bottom:0;
+				display:block;
+				width:100%;
+				min-height:15px;
+				font-size:14px;
+				line-height:16px;
+				font-weight:500;
+			}
+
+			&.checkbox{
+				margin:1px 0;
+				input{
+					position:absolute;
+					left:0;
+					top:10px;
+				}
+				label{
+					margin-top:0;
+					margin-bottom:0;
+					padding:4px 0 4px 25px;
+				}
+			}
+			&.select{
+				select{
+					width:100%;
+					max-width:200px;
+					border:1px solid $light_bg2;
+				}
+			}
+			&.number{
+				input{
+					max-width:200px;
+				}
+			}
+		}
+	}
+}
+
+#videolab360_options_form{
+	padding-top:8px !important;
+	margin-top:0 !important;
+
+	h1{
+		display:inline-block;
+		font-size:26px;
+		line-height:34px;
+		padding-bottom:15px;
+		border:none;
+		b{
+			text-transform: capitalize;
+		}
+		
+	}
+	h2{
+		font-size:20px;
+		line-height:26px;
+		font-weight:500;
+		margin-bottom:30px;
+		margin-top:7px;
+	}
+	.container.md{
+		margin:30px 0;
+		max-width:1000px;
+		padding-left:0;
+		
+		p.lg{
+			margin-top:0;
+		}
+	}
+	.options{
+		.item{
+			label{
+				margin-top:4px;
+				margin-bottom:3px;
+			}
+			&.checkbox{
+				label{
+					margin-top:0;
+					margin-bottom:0;
+					padding:4px 0 4px 25px;
+				}
+			}
+		}
+	}
+}
+.srow{
+	@include clearfix;
+	display:block;
+	position:relative;
+	width:100%;
+	max-width:1400px;
+	
+	.coll,p.submit{
+		display:block;
+		height:30px;
+		float:left;
+		margin:0;
+	}
+	.coll{
+		min-width:200px;
+		min-height:80px;
+		label{
+			display:block;
+			width:100%;
+		}
+		&.submit{
+			min-width:90px;
+		}
+	}
+	input[type="text"]{
+		display:block;
+		width:97%;
+	}
+	input[type="text"],select{
+		height:30px !important;
+		line-height:30px !important;
+	}
+	p.submit{
+		width:150px;
+		margin-left:4px;
+		padding:0;
+	}
+}
+.ajax-file-upload-error{
+	display:inline-block;
+	padding:10px;
+	color:$text_color;
+	font-size:13px;
+	border:1px solid $red;
+	border-left-width:5px;
+	background:white;
+	margin-top:10px;
+}
+.videolab360_options_filter{
+	p.submit{
+		display:inline-block;
+		margin:0;
+		padding:0 0 0 4px;
+	}
+}
+.instructions{
+	position:relative;
+	display:inline-block;
+	.toogler{
+		@include transitions(0.3s);
+		position:relative;
+		display:inline-block;
+		border:1px solid $blue;
+		padding:5px 40px 5px 45px;
+		font-size:14px;
+		line-height:30px;
+		cursor:pointer;
+
+		.iicon{
+			@include border_radius(50%);
+			display:block;
+			position:absolute;
+			left:10px;
+			top:8px;
+			width:25px;
+			height:25px;
+			background:$blue;
+			text-align:center;
+			svg path{
+				fill:white;
+			}
+		}
+		.iarrow{
+			@include transitions(0.3s);
+ 			@include rotate_filter(0deg);
+			display:block;
+			position:absolute;
+			right:10px;
+			top:8px;
+			width:25px;
+			height:25px;
+			background:transparent;
+			text-align:center;
+			svg{
+				width:18px;
+				height:18px;
+			}
+			svg path{
+				fill:$blue;
+			}
+		}
+		&.active{
+
+			.iarrow{
+				 @include rotate_filter(-180deg);
+			}
+		}
+		&.active,&:hover{
+			background:white;
+		}
+	}
+	.info{
+		border:2px dashed $blue;
+		padding:5px 10px;
+		font-size:14px;
+		margin-top:5px;
+		background:white;
+		b{
+			font-weight:700;
+		}
+	}
+}
+#videolab360_orders_form{
+	table{
+		th{
+			&#order,&#vip,&#confirmed{
+				width:110px;
+			}
+			&#id,#confirmed{
+				width:90px;
+			}
+			&#remote{
+				width:70px;
+			}
+		}
+		.woostify-svg-icon{
+			svg{
+				margin-bottom:-3px;
+			}
+		}
+		.icon-alert{
+			path{
+				fill:$red;
+			}
+		}
+		.icon-star{
+			path{
+				fill:$yellow2;
+			}
+		}
+		.icon-check-box{
+			path{
+				fill:$green2;
+			}
+		}
+	}
+}
+
+
+
+
+.details_list{
+	@include clearfix;
+	position:relative;
+	display:block;
+	width:calc(100% + 4px);
+	margin-left:-2px;
+	margin-right:-2px;
+	margin-bottom:40px;
+	.item{
+		@include clearfix;
+		position:relative;
+		display:block;
+		float:left;
+		width:180px;
+		margin:2px;
+		min-height:30px;
+		border:1px solid $bgcolor1;
+		div{
+			position:relative;
+			display:block;
+			width:calc(100% - 20px);
+			padding:10px;
+			line-height:30px;
+			&:nth-child(1){
+				background:$bgcolor1;
+				color:white;
+			}
+			&:nth-child(2){
+				background:#fff;
+				color:$black
+			}
+		}
+	}
+}
+
+
+.photos360-product-meta{
+	label{
+		font-size:15px;
+		font-weight:bold;
+	}
+	.photos360-droplist{
+		@include droplist_style;
+		border:none;
+		max-height:100%;
+		min-height:100px;
+		height:auto;
+		width:100%;
+		max-width:100%;
+		overflow-y:visible;
+		padding:0;
+		.option .text{
+			font-size:13px;
+
+		}
+	}
+}
+.photos360-wrapper{
+	p.tip{
+		position:relative;
+		display:inline-block;
+		font-size:14px;
+		line-height:20px;
+		color:$grey_dark;
+		clear:both;
+		
+		padding:5px;
+		margin:5px 0;
+		&.wrong{
+			margin-top:7px;
+			border:1px solid $red;	
+			border-left-width:5px;
+		}
+		&.good{
+			border:1px solid $green;
+			border-left-width:5px;	
+		}
+	}
+	.irow{
+		&.ttop{
+			margin-top:-20px;
+		}
+	}
+
+
+}
+.photos360-wrapper{
+	position:relative;
+	display:block;
+	width:95%;
+
+	.photos360-droplist{
+		@include droplist_style;
+	}
+	#fileuploader{
+		&.waiting{
+			opacity:0.6;
+			pointer-events: none;
+		}
+	}
+	
+	input[type="text"]{
+		&.empty{
+			border:1px solid $red;
+		}
+	}
+
+	.irow{
+		@include clearfix;
+		position:relative;
+		display:block;
+		width:100%;
+		margin:20px 0;
+		&.lb{
+			margin-bottom:5px;
+		}
+
+		label{
+			display:block;
+			width:100%;
+			min-height:25px;
+			display:block;
+			padding-bottom:7px;
+			font-size:16px;
+
+		}
+		select{
+			min-width:300px;
+		}
+		input:not([type="checkbox"]){
+			position:relative;
+			display:block;
+			float:left;
+			width:500px;
+			margin-right:7px;
+		}
+		input.date-picker{
+			max-width:300px;
+			min-width:300px;
+		}
+
+	}
+	form{
+		@include clearfix;
+		position:relative;
+		display:block;
+		width:100%;
+
+		.coll{
+			position:relative;
+			display:block;
+			width:25%;
+			min-width:280px;
+			max-width:310px;
+			float:left;
+			padding:5px 7px;
+			
+			label{
+				display:block;
+				width:100%;
+				min-height:25px;
+				display:block;
+				padding-bottom:7px;
+				font-size:16px;
+			}
+			select{
+				width:100%;
+				max-width:100%;
+				height:40px;
+				line-height:40px;
+
+			}
+			a.button{
+				height:40px;
+				line-height:37px;
+				padding:0 15px;
+				min-width:200px;
+				text-align:center;
+				text-transform: uppercase;
+				font-size:16px;
+
+				&.photos360-disabled{
+					 pointer-events: none;
+					 opacity:0.7;
+					 background-color:$grey;
+					 border-color:$grey;
+					 color:$black;
+				}
+			}
+		}
+
+	}
+	#upload_wrapper{
+		margin-top:40px;
+		&.photos360-disabled{
+			 display:none;
+		}
+	}
+}
+
+
+.ajax-upload-dragdrop{
+	padding:30px 20px;
+	border:2px dashed $blue;
+	&.state-hover{
+		border:2px solid $blue;
+	}
+	b{
+		color:#999 !important;
+		font-size:20px;
+		letter-spacing:1px;
+	}
+}
+.photos360-message{
+	display:inline-block;
+	padding:20px 50px 20px 20px;
+	font-size:15px;
+	line-height:20px;
+	margin-bottom:25px;
+	font-weight:bold;
+	border:1px solid #aaa;
+	border-left-width:7px;
+
+	&.photos360-success{
+		display:inline-block;
+		border:1px solid $green;
+		border-left-width:7px;
+	}
+	&.photos360-error{
+		display:inline-block;
+		border:1px solid $red;
+		border-left-width:7px;
+	}
+	&.after_update{
+		position:absolute !important;
+		top:5px;
+		right:5px;
+		margin:0 !important;
+		padding:12px 15px !important;
+		background:white;
+		z-index:2;
+		&.st2{
+			position:fixed !important;
+			top:90px;
+			left:auto;
+			right:5%;
+		}
+	}
+
+}
+#new_cat_wrapper{
+	padding:8px 0 !important;
+}
+
+#videolab360_orders_form{
+	.row-actions{
+		left:0 !important;
+		opacity:0.85;
+		&:hover{
+			opacity:1;
+		}
+	}
+}
+
+.videolab360_new{
+
+	.progressBar {
+	    width: 200px;
+	    height: 22px;
+	    border: 1px solid #ddd;
+	    @include border_radius(5px);
+	    overflow: hidden;
+	    display:inline-block;
+	    margin:0px 10px 5px 5px;
+	    vertical-align:top;
+	}
+	 
+	.progressBar div {
+	    height: 100%;
+	    color: #fff;
+	    text-align: right;
+	    line-height: 22px; 
+	    width: 0;
+	    background-color: #0ba1b5; 
+	    @include border_radius(3px);
+	}
+	.statusbar
+	{
+	    border-top:1px solid #A9CCD1;
+	    min-height:25px;
+	    width:700px;
+	    padding:10px 10px 0px 10px;
+	    vertical-align:top;
+	}
+	.statusbar:nth-child(odd){
+	    background:#EBEFF0;
+	}
+	.filename
+	{
+		display:inline-block;
+		vertical-align:top;
+		width:250px;
+	}
+	.filesize
+	{
+		display:inline-block;
+		vertical-align:top;
+		color:#30693D;
+		width:100px;
+		margin-left:10px;
+		margin-right:5px;
+	}
+	.abort{
+	    background-color:#A8352F;
+	   	@include border_radius(4px);
+	    display:inline-block;
+	    color:#fff;
+	    font-family:arial;font-size:13px;font-weight:normal;
+	    padding:4px 15px;
+	    cursor:pointer;
+	    vertical-align:top
+	}
+}
+.videolab360_orders_filters fieldset{
+	border:1px solid #aaa;
+	font-size:16px;
+	padding:10px;
+	max-width:calc(100% - 60px);
+	margin-bottom:20px;
+	margin-top:20px;
+	legend{
+		color:$blue;
+		font-weight:bold;
+		font-size:18px;
+		line-height:28px;
+	}
+	&.full{
+		max-width:100%;
+		width:100%;
+	}
+	h2,h3{
+		margin-bottom:15px;
+	}
+	h1{
+		font-size:27px;
+	}
+	h3{
+		font-size:22px;
+	}
+	p.submit{
+		margin:0;
+		padding:0;
+	}
+	.row{
+		display:block;
+		width:100%;
+		min-height:50px;
+		clear:both;
+		margin-bottom:12px;
+		
+		&.mbot{
+			margin-bottom:30px;
+
+		}
+		&:after{
+			content:"";
+			display:block;
+			width:100%;
+			height:2px;
+			clear:both;
+		}
+
+		label,select,input[type=text],p{
+			display:block;
+			width:100%;
+			text-align:left;
+			clear:none;
+		}
+		input.date-picker{
+			max-width:300px !important;
+		}
+		label{
+			line-height:25px;
+
+		}
+	}
+}
+.videolab360-logs-wrapper{
+	p.submit{
+		margin:12px 0 0 0 !important;
+		padding:0;
+	}
+}
+.flex-center{
+	 @include flex_center(center);
+}
+@media (min-width: 992px) {
+	
+	#videolab360_records_form,#videolab360_categories_form{
+		.row-actions{
+			left:0;
+			opacity:0.8;
+		}
+		tr{
+			&.removing{
+				pointer-events: none;
+				background:$red_light;
+			}
+			&:hover{
+				.row-actions{
+					opacity:1;
+				}
+			}
+		}
+		.column-id{
+			width:3%;
+		}
+		.column-user_id{
+			width:8%;
+		}
+		.column-category{
+			width:10%;
+		}
+		.column-shortcode{
+			width:9%;
+		}
+		.column-expires{
+			width:7%;
+		}
+
+		.column-created,.column-updated,.column-actions,.column-colactions{
+			width:10%;
+		}
+
+		.column-label{
+			width:30%;
+		}
+
+	}
+	#videolab360_categories_form,.admin-logs{
+		max-width:1200px;
+
+		th.column-id{
+			width:120px;
+		}
+
+		th.column-created{
+			width:170px;
+		}
+		th.column-type{
+			width:170px;
+		}
+		th.column-comment{
+			width:calc(100% - 520px);
+		}
+		.column-colactions{
+			width:20%;
+		}
+	}
+	.admin-logs{
+		.tablenav{
+			.bulkactions{
+				display:none;
+			}
+		}
+	}
+}
+.mobile-label{display:none;}
+@media screen and (max-width: 782px){
+	.mobile-label{
+		display:block;
+		height:50px;
+		float:left;
+		width:80%;
+
+	}
+	#videolab360_records_form,#videolab360_categories_form{
+		.id-wrapper{
+			width:20%;
+			display:block;
+			height:50px;
+			float:left;
+			.flex-center{
+				min-height:50px;
+			}
+		}
+		.mobile-label{
+			.inner .thumb{
+				padding-left:10px;
+				width:50px;
+				height:50px;
+			}
+			.label{
+				min-height:50px;
+			}
+		}
+		.column-id{
+			width:60px;
+		}
+		.column-label{
+			display:none !important;
+		}
+		.column-actions{
+			.row-actions,.mobile-label{
+				display:none !important;
+			}
+		}
+	}
+	#videolab360_categories_form,.videolab360-logs-wrapper{
+		.id-wrapper{
+			width:20%;
+			display:block;
+			height:30px;
+			float:left;
+			.flex-center{
+				min-height:30px;
+			}
+		}
+		.mobile-label{
+
+			.label{
+				min-height:30px;
+			}
+		}
+		.wp-list-table .is-expanded td:not(.hidden){
+			&.column-type{
+				display:none !important;
+			}
+		}
+		.column-name{
+			display:none !important;
+		}
+	}
+	.videolab360-logs-wrapper,.photos360-wrapper{
+		.wp-list-table tr:not(.inline-edit-row):not(.no-items) td.column-id::before {
+			display:none;
+		}
+	}
+	#videolab360_admin_preview{
+		padding-top:80px;
+
+	}
+	.videolab360_orders_filters fieldset{
+		max-width:100%;
+	}
+	.photos360-wrapper{
+		padding-left:0;
+		.tablenav.top{
+			margin-top:4px;
+		}
+		form{
+			max-width:100%;
+			.coll{
+				height:auto;
+				min-width:100px;
+				width:100%;
+				float:none;
+				clear:both;
+				max-width:100%;
+				padding:4px 0;
+				margin-bottom:4px;
+				label{
+					min-height:17px;
+				}
+				&.submit{
+					label{
+						display:none;
+					}
+				}
+			}
+			.srow .coll{
+				min-height:60px;
+			}
+		}
+		 .folder_space{
+			left:10px;
+			right:auto;
+		 }
+		.irow .coll{
+			width:100%;
+			margin-bottom:10px;
+		}
+		.irow label{
+			display:inline-block;
+			width:auto;
+		}
+		.irow input:not([type="checkbox"]){
+			width:100%;
+		}
+	}
+	#videolab360_admin_preview .options .item.checkbox label, #videolab360_options_form .options .item.checkbox label, .photos360-wrapper .options .item.checkbox label {
+		padding-left:34px;
+		line-height:25px;
+	}
+	#add_category{
+		width:50px;
+		padding:0;
+
+		text-align:center;
+		span.label{
+			display:none;
+		}
+
+	}
+	.add-category{
+		padding-bottom:0;
+		input{
+			min-width:calc(100% - 50px);
+			min-height:35px;
+		}
+	}
+	
+}
